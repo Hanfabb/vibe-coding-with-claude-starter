@@ -6,23 +6,26 @@ Welcome. In this 2-hour session you'll build a small, real, working thing with C
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Im-Hal-9K/vibe-coding-with-claude-starter?quickstart=1)
 
-Click the **Open in GitHub Codespaces** button above (sign in with a free GitHub account if asked). Wait a minute while your workspace builds. A full code editor opens right in your browser, with nothing installed on your own computer.
+Click the **Open in GitHub Codespaces** button above (sign in with a free GitHub account if asked). A full code editor opens right in your browser, with nothing installed on your own computer.
+
+**This takes a few minutes to build, and that is normal.** It is downloading the Claude tooling for you. If it looks like it is sitting there doing nothing, it isn't. Let it finish.
 
 ## 2. Connect to Claude (takes 20 seconds)
 
 Once the editor has finished opening:
 
-1. **Open a terminal:** top menu **Terminal → New Terminal** (or press `` Ctrl+` ``). A panel opens at the bottom, that's where you type commands.
-2. **Give Claude the class key.** Type the line below, replacing `PASTE-CLASS-KEY-HERE` with the **key your instructor shows on screen**, then press Enter:
+1. **Say yes to the trust question.** A box appears asking *"Do you trust the authors of the files in this folder?"* Click **Trust Folder & Continue**. This is the editor being careful with code it has not seen before, and it is expected here. *(You have to do this before the next step will work at all: the editor will not let you open a terminal until you do.)*
+2. **Open a terminal:** top menu **Terminal → New Terminal** (or press `` Ctrl+` ``). A panel opens at the bottom, that's where you type commands.
+3. **Give Claude the class key.** Type the line below, replacing `PASTE-CLASS-KEY-HERE` with the **key your instructor shows on screen**, then press Enter:
    ```bash
    export ANTHROPIC_API_KEY=PASTE-CLASS-KEY-HERE
    ```
    Nothing visible happens, and that's correct. *(What it does: `export` saves a value for this terminal session; `ANTHROPIC_API_KEY` is the name Claude looks for. You just handed Claude the temporary key it needs.)*
-3. **Start Claude.** Type:
+4. **Start Claude.** Type:
    ```bash
    claude
    ```
-4. The first time, Claude asks **"Do you want to use this API key?"** Choose **Yes**. (It defaults to *No*, so don't just press Enter.)
+5. The first time, Claude asks **"Do you want to use this API key?"** Choose **Yes**. (It defaults to *No*, so don't just press Enter.)
 
 You're connected. If you ever close the terminal and open a new one, run the `export` line again.
 
