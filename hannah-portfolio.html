@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah Boachie | Data Analysis Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-primary: #2563eb;
+            --accent-dark: #1d4ed8;
+            --border-light: #e5e7eb;
+            --success: #059669;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --accent-primary: #3b82f6;
+                --accent-dark: #1e40af;
+                --border-light: #334155;
+                --success: #10b981;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --accent-primary: #3b82f6;
+            --accent-dark: #1e40af;
+            --border-light: #334155;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-primary);
+            margin: 0 auto 40px;
+            border-radius: 2px;
+        }
+
+        .bio {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-secondary);
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+
+        .projects-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 15px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--accent-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .name {
+                font-size: 48px;
+                margin-bottom: 12px;
+            }
+
+            .tagline {
+                font-size: 18px;
+                margin-bottom: 32px;
+            }
+
+            .cta-group {
+                gap: 12px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 15px;
+                flex: 1;
+                min-width: 140px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .project-card {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .btn {
+                transition: none;
+            }
+
+            .btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1 class="name">Hannah Boachie</h1>
+            <p class="tagline">Data Analyst & Storyteller</p>
+            <div class="divider"></div>
+
+            <p class="bio">
+                I transform complex datasets into actionable insights, helping organizations make data-driven decisions.
+                With expertise in statistical analysis, visualization, and business intelligence, I bridge the gap between
+                raw data and meaningful strategy.
+            </p>
+
+            <div class="cta-group">
+                <a href="https://linkedin.com/in/hannah-fboachie" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    → LinkedIn
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    → View Projects
+                </a>
+                <a href="mailto:hanfabb@gmail.com" class="btn btn-outline">
+                    → Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <section class="projects-section" id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Data analysis projects showcasing insights and impact</p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Customer Churn Dashboard</h3>
+                    <p class="project-description">
+                        Interactive Power BI dashboard analyzing customer churn patterns across segments. Visual insights identified 3 key risk factors, driving targeted retention strategies that reduced churn by 23%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Sales Performance Dashboard</h3>
+                    <p class="project-description">
+                        Developed interactive dashboard tracking regional sales metrics across 15 territories. Enabled real-time monitoring and improved decision-making speed by 40%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Marketing Attribution Dashboard</h3>
+                    <p class="project-description">
+                        Built comprehensive Power BI dashboard tracking multi-channel marketing performance and ROI. Real-time metrics identified top-performing channels, saving $250K annually in optimized ad spend.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Google Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Hannah Boachie. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add keyboard shortcut to toggle dark mode (Ctrl/Cmd + Shift + D)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
+                e.preventDefault();
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            }
+        });
+
+        // Restore saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+</body>
+</html>
